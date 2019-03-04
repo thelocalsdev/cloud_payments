@@ -38,5 +38,9 @@ module CloudPayments
     def on_fail(data)
       OnFail.new(@serializer.load(data))
     end
+
+    def on_refund(data)
+      OnRefund.new(@serializer.load(data))
+    end
   end
 end
