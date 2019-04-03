@@ -9,7 +9,7 @@ module CloudPayments
 
       def cancel(attributes)
         response = request(:cancel, attributes)
-        CancelOrder.new(response[:model])
+        CancelOrder.new(response)
       end
     end
   end
