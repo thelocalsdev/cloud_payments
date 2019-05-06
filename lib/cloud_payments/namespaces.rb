@@ -1,15 +1,21 @@
 # frozen_string_literal: true
 require 'cloud_payments/namespaces/base'
+require 'cloud_payments/namespaces/applepay'
 require 'cloud_payments/namespaces/cards'
 require 'cloud_payments/namespaces/tokens'
 require 'cloud_payments/namespaces/payments'
 require 'cloud_payments/namespaces/subscriptions'
 require 'cloud_payments/namespaces/orders'
+require 'cloud_payments/namespaces/kassa'
 
 module CloudPayments
   module Namespaces
     def payments
       Payments.new(self)
+    end
+
+    def kassa
+      Kassa.new(self)
     end
 
     def subscriptions
@@ -18,6 +24,10 @@ module CloudPayments
 
     def orders
       Orders.new(self)
+    end
+
+    def applepay_session
+      Applepay.new(self)
     end
 
     def ping

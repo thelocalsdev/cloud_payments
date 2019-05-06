@@ -125,6 +125,30 @@ client = CloudPayment::Client.new(config)
 client.payments.cards.charge(...)
 ```
 
+## Kassa Receipt
+  CloudPayments Kassa API (https://cloudpayments.ru/docs/api/kassa)
+
+```ruby
+  CloudPayments.client.kassa.receipt({
+    :account_id => "user@example.com",
+    :customer_receipt => {
+    :items => [
+       {
+            :amount => "13350.00",
+             :ean13 => nil,
+             :label => "Good Description",
+             :price => "13350.00",
+          :quantity => 1.0,
+               :vat => nil
+        }
+      ]
+    },
+                 :inn => "7708806666",
+          :invoice_id => "231312312",
+                :type => "Income"
+  })
+```
+
 ## Webhooks
 
 ```ruby
